@@ -1,0 +1,24 @@
+.page{
+    width: 80%;
+    margin: 0 auto;
+}
+.header .right{
+    text-align: right;
+    margin: auto 0;
+}
+.content .inner .caption {
+    font-weight: 500 !important;
+}
+
+
+@media screen and (max-width:480px) {
+    .page {
+        width: 100%;
+        margin: 0;
+    }
+}
+@media screen and (max-width:839px) {
+    .page .mdc-layout-grid__inner {
+        grid-template-columns: auto;
+    }
+}
