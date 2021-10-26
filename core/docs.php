@@ -2,9 +2,14 @@
 include_once "../docs/quickstart.php";
 
 class Docs {
-    private $client;
+    private $service;
 
     public function __construct() {
-        $this->client = getClient();
+        $client = getClient();
+        $this->service = new Google_Service_Sheets($client);
+    }
+
+    public function getService() {
+        return $this->service;
     }
 }
