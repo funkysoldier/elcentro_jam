@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <title>Джем - Личный кабинет - Логин</title>
+    <!-- Styles -->
+    <link href="/css/my.css" rel="stylesheet">    
+    <!-- Material Design -->
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet" crossorigin="">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js" crossorigin=""></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" >
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="/js/main.js" type="text/javascript"></script>
+    <script src="/js/view.js" type="text/javascript"></script>
+    <script src="/js/login.js" type="text/javascript"></script>
+  </head>
+  <body class="mdc-typography">
+    <div class="page">
+      <div class="login">
+        <i class="material-icons">person_outline</i>
+        <div class="mdc-typography--headline5">Авторизация</div>
+      
+          <form class="login-form" id="form-login" action="/login.html">
+
+            <label class="mdc-text-field mdc-text-field--outlined">
+              <input type="email" class="mdc-text-field__input" name="email" id="email" aria-labelledby="label-email" required minlength="1" maxlength="100">
+              <span class="mdc-notched-outline">
+                <span class="mdc-notched-outline__leading"></span>
+                <span class="mdc-notched-outline__notch">
+                  <span class="mdc-floating-label" id="label-email">Почта</span>
+                </span>
+                <span class="mdc-notched-outline__trailing"></span>
+              </span>
+            </label>
+
+            <button class="mdc-button mdc-button--raised" id="form-submit">
+              <div class="mdc-button__ripple"></div>
+              <span class="mdc-button__label">Войти</span>
+            </button>
+
+          </form>
+      
+          <span id="login-error"></span>
+          
+          <span class="inform">PS: Эта страничка использует куки для хранения авторизационных данных</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

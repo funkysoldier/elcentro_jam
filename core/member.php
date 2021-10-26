@@ -24,6 +24,14 @@ class Member {
         return $result;
     }
 
+    public function login($find){
+        $members = $this->all();
+        foreach($members as $i => $v)
+            if (strtoupper($find["email"]) == strtoupper($v[4]))
+                return [];
+        return ["error" => ["message" => "Пользователь не найден"]];
+    }
+
     public function prepareResult($m) {
         $r = [];
         foreach($this->fields as $i => $f)
