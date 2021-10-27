@@ -27,8 +27,11 @@ class Member {
     public function login($find){
         $members = $this->all();
         foreach($members as $i => $v)
-            if (strtoupper($find["email"]) == strtoupper($v[4]))
+            if (strtoupper($find["email"]) == strtoupper($v[4])){
+                // $cfg = new Config;
+                // $hash = hash("sha256", strtoupper($find["email"]) . $cfg->hashSalt);
                 return [];
+            }
         return ["error" => ["message" => "Пользователь не найден"]];
     }
 

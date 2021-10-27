@@ -18,8 +18,7 @@ $(document).ready(function () {
                 $("#email").select();
             } else {
                 document.querySelector('form').reset();
-                document.cookie = `memberEmail=${email}`;
-                window.location.href = '.';
+                window.location.href = `/auth/?auth=${email}`;
             }
         });
     });
