@@ -2,7 +2,6 @@
 function getMember(){
     setLoader('.content .inner');
     getContent({"method": "get", "object": "member", "params": {"email": memberEmail}}, function(data){
-        $('.page .header .title').html( (data[0].name ? `Привет, ${data[0].name}!` : 'Привет!') );
         $('.content .inner').html( getMemberView(data) );
     });
 }

@@ -2,7 +2,7 @@
 include_once "docs.php";
 
 class Member {
-    public $fields = ["datatime", "name", "surname", "tel", "email", "gender", "stay", "transfer", "group", "social", "pair", "house", "comment", "kids", "cost", "ip"];
+    public $fields = ["datetime", "name", "surname", "tel", "email", "gender", "stay", "transfer", "group", "social", "pair", "house", "comment", "kids", "cost", "ip"];
 
     public function all(){
         $cfg = new Config();

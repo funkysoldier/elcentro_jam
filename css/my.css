@@ -27,14 +27,39 @@
     font-size: small;
     color: var(--mdc-theme-text-primary-on-light, rgba(0, 0, 0, 0.87));
 }
+.header .title a{
+    color: inherit;
+    border-bottom: 2px solid #ccc;
+    text-decoration: none;
+}
+.header .title a:hover{
+    border-color: inherit;
+}
 .header .right{
     text-align: right;
     margin: auto 0;
 }
-.content .inner .caption {
+.content .inner .card .gender {
+    height: 36px;
+    width: 36px;
+    border: 1px solid rgba(0, 0, 0, 20%);
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: bottom;
+}
+.content .inner .card .title {
+    display: block;
+    margin-bottom: 24px;
+}
+.content .inner .card .caption {
     font-weight: 500 !important;
 }
-
+.content .inner .card i {
+    color: var(--mdc-theme-text-primary-on-light, rgba(0, 0, 0, 0.87));
+    vertical-align: bottom;
+    margin-right: 2px;
+    cursor: pointer;
+}
 
 @media screen and (max-width:480px) {
     .page {
