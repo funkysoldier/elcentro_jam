@@ -129,7 +129,9 @@ function getMemberView(data){
             </div>
           </div>
           <div class="mdc-layout-grid">
-            <div class="mdc-typography--headline6">${(m["cost"].indexOf("00") == -1 ? (m["cost"] == '0' ? 'Оплата не требуется' : m["cost"]) : `Стоимость: ${m["cost"]}. Оплатить до 14.11`)}</div>
+            <div class="mdc-typography--headline6">${(m["cost"].indexOf("00") == -1 ? (m["cost"] == '0' ? 
+              '<span class="status--ok">Оплата не требуется</span>' : m["cost"]) : 
+              `Стоимость: ${m["cost"]}. Оплатить до 14.11`)}</div>
           </div>
         </div>`
         // for (const key in m)

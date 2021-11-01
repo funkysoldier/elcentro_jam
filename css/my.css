@@ -60,6 +60,9 @@
     margin-right: 2px;
     cursor: pointer;
 }
+.status--ok {
+    color: var(--mdc-theme-secondary, #018786);
+}
 
 @media screen and (max-width:480px) {
     .page {

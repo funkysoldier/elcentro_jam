@@ -1,7 +1,7 @@
 
 function getMember(){
     setLoader('.content .inner');
-    getContent({"method": "get", "object": "member", "params": {"email": memberEmail}}, function(data){
+    getContent({method: "get", object: "member", params: {email: memberEmail}}, function(data){
         $('.content .inner').html( getMemberView(data) );
     });
 }

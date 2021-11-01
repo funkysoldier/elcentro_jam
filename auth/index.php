@@ -41,7 +41,7 @@ if ( isset($_GET["auth"]) ) {
             <div style=\"overflow:hidden;border-top:1px solid #f0f0f0;text-align:left\">
               <div>
                 <p>Привет!</p>
-                <p>Для подтверждения электронной почты, пройди, пожалуйста, по ссылке:<br>
+                <p>Для подтверждения электронной почты и доступа в личный кабинет, необходимо пройди по ссылке:<br>
                   <a href=\"http://jam.elcentro.ru/auth/?email={$email}&code={$hash}\" target=\"_blank\">http://jam.elcentro.ru/auth/?email={$email}&code={$hash}</a>
                 </p>
                 <p>Если вы получили это письмо по ошибке, просто игнорируйте его.</p>
@@ -53,9 +53,8 @@ if ( isset($_GET["auth"]) ) {
     </div></div>";
     $status = smtpmail("", $email, "Подтверждение почты Личного кабинета", $msg);
     $text = ($status ?
-        "<p>На адрес <b>{$email}</b> выслано письмо для подтверждения почты. В письме вы найдёте ссылку для перехода.</p>
-        <p>А пока вы будете перенаправлены на страницу личного кабинета.</p>
-        <img src=\"/img/spinner-x26.gif\" title=\"Загрузка...\" alt=\"Загрузка...\"/>":
+        "<p>На адрес <b>{$email}</b> выслано письмо для подтверждения почты. В письме вы найдёте ссылку для перехода в личный кабинет.</p>
+        <p>Если письмо не пришло, проверьте папку для спама ;)</p>" :
         "<p>Произошла ошибка при отправке письма на адрес <b>{$email}</b>. Попробуйте <a href=\"/login.html\">повторить ещё раз</a>.</p>");        
 } elseif ( isset($_GET["email"]) && isset($_GET["code"]) ) {
     $email = $_GET["email"];
@@ -65,13 +64,12 @@ if ( isset($_GET["auth"]) ) {
             "<p>Авторизация прошла успешно! Сейчас вы будете перенаправлены на страницу личного кабинета.</p>
             <img src=\"/img/spinner-x26.gif\" title=\"Загрузка...\" alt=\"Загрузка...\"/>":
             "Ошибка авторизации!");
-} 
-
-if($status) {
-    echo "<script type=\"text/javascript\">\n";
-    echo "document.cookie = \"memberEmail={$email};path=/my". (isset($_GET["code"]) ? ";max-age=1555200" : ""). "\";\n";
-    echo "setTimeout(function() { window.location.href = '/my/' }, 4000);\n";
-    echo "</script>\n";
+    if($status) {
+        echo "<script type=\"text/javascript\">\n";
+        echo "document.cookie = \"memberEmail={$email};path=/my;max-age=1555200\";\n";
+        echo "setTimeout(function() { window.location.href = '/my/' }, 4000);\n";
+        echo "</script>\n";
+    } 
 } 
 ?>
   </head>
