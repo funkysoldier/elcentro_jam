@@ -2,6 +2,7 @@ const cRequest = "/core/";
 // Material Design
 const MDCList = mdc.list.MDCList;
 const MDCRipple = mdc.ripple.MDCRipple;
+const MDCTabBar = mdc.tabBar.MDCTabBar;
 const MDCFormField = mdc.formField.MDCFormField;
 const MDCTextField = mdc.textField.MDCTextField;
 const MDCCheckbox = mdc.checkbox.MDCCheckbox;
@@ -51,6 +52,11 @@ function checkCookie(coo){
 function getCookie(coo){
     let re = new RegExp(`(?:(?:^|.*;\\s*)${coo}\\s*\\=\\s*([^;]*).*$)|^.*$`)
     return document.cookie.replace(re, "$1");
+}
+
+function logout(){
+    document.cookie = 'memberEmail=;expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    window.location.href = 'login.html';
 }
 
 $(document).ready(function(){

@@ -2,6 +2,9 @@
     width: 80%;
     margin: 0 auto;
 }
+.page.tabs .mdc-layout-grid {
+    padding-bottom: 0 !important;
+}
 .login {
     text-align: center;
     margin: 15% auto;

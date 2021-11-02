@@ -66,7 +66,7 @@ if ( isset($_GET["auth"]) ) {
             "Ошибка авторизации!");
     if($status) {
         echo "<script type=\"text/javascript\">\n";
-        echo "document.cookie = \"memberEmail={$email};path=/my;max-age=1555200\";\n";
+        echo "document.cookie = \"memberEmail={$email};path=/;max-age=1555200\";\n";
         echo "setTimeout(function() { window.location.href = '/my/' }, 4000);\n";
         echo "</script>\n";
     } 

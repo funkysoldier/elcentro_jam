@@ -6,11 +6,6 @@ function getMember(){
     });
 }
 
-function logout(){
-    document.cookie = 'memberEmail=;expires=Thu, 01 Jan 1970 00:00:00 GMT';
-    window.location.href = 'login.html';
-}
-
 $(document).ready(function(){
     if (!checkCookie('memberEmail')){
         window.location.href = 'login.html';
