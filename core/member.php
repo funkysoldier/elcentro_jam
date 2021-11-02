@@ -4,7 +4,7 @@ include_once "docs.php";
 class Member {
     public $fields = ["datetime", "name", "surname", "tel", "email", "gender", "stay", "transfer", "group", "social", "pair", "house", "comment", "kids", "cost", "ip"];
 
-    public function all(){
+    public function list(){
         $cfg = new Config();
         $docs = new Docs();
         $service = $docs->getService();
@@ -15,7 +15,7 @@ class Member {
     }
 
     public function get($find){
-        $members = $this->all();
+        $members = $this->list();
         $result = [];
         foreach($members as $i => $v)
             if ( isset($find["email"]) )
@@ -24,8 +24,16 @@ class Member {
         return $result;
     }
 
+    public function all(){
+        $members = $this->list();
+        $result = [];
+        foreach($members as $i => $v)
+            $result[] = $this->prepareResult($v);
+        return $result;
+    }
+
     public function login($find){
-        $members = $this->all();
+        $members = $this->list();
         foreach($members as $i => $v)
             if (strtoupper($find["email"]) == strtoupper($v[4])){
                 // $cfg = new Config;
