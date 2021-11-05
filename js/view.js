@@ -1,5 +1,5 @@
 const caMemberFields = [];
-const caMemberFieldsLocal = [, , , , "email", "gender", "stay", "transfer", "group", "social", "pair", "house", "comment", "kids", "cost", "ip"];
+const caMemberFieldsLocal = ["datetime", "name", "surname", "tel", "email", "gender", "stay", "transfer", "group", "social", "pair", "house", "comment", "kids", "cost", "ip", "state"];
 const layout = { 
     member: {
         datetime: {
@@ -58,6 +58,23 @@ const layout = {
         },
         ip: {
             caption: "IP-адрес"
+        },
+        state: {
+            caption: "Статус"
+        }
+    },
+    state: {
+        registred: {
+            caption: 'Зарегистрирован(-а)',
+            icon: 'add'
+        },
+        accepted: {
+            caption: 'В списке',
+            icon: 'done'
+        },
+        waiting: {
+            caption: 'Лист ожидания',
+            icon: 'schedule'
         }
     }
 };
@@ -144,5 +161,48 @@ function getMemberView(data){
         //           <span class="mdc-typography--body1">${m[key]}</span>
         //         </div>`;
     }
+    return html;
+}
+
+function getRegistrationsView(data) {
+    let html = `
+  <div class="mdc-layout-grid__cell--span-12">
+  <div class="mdc-data-table" id="members_table">
+    <table class="mdc-data-table__table">
+      <thead>
+        <tr class="mdc-data-table__header-row">`;
+    for (const field of ['name', 'surname', 'state']) {
+        html += `
+          <th class="mdc-data-table__header-cell mdc-data-table__header-cell--with-sort"
+            role="columnheader" scope="col" aria-sort="none" data-column-id="${field}" style="width:150px">
+            <div class="mdc-data-table__header-cell-wrapper">
+              <div class="mdc-data-table__header-cell-label">${layout.member[field].caption}</div>
+              <button class="mdc-icon-button material-icons mdc-data-table__sort-icon-button"
+                    title="Отсортировать">arrow_upward</button>
+            </div>
+          </th>`;
+    }
+    html += `
+          <th class="mdc-data-table__header-cell" role="columnheader" scope="col" style="width:150px">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody class="mdc-data-table__content">`;
+    for (const m of data) {
+        html += `
+        <tr class="mdc-data-table__row">
+          <td class="mdc-data-table__cell">${m['name']}</td>
+          <td class="mdc-data-table__cell">${m['surname']}</td>
+          <td class="mdc-data-table__cell">
+            ${(m['state'] ? `<i class="material-icons" title="${layout.state[m["state"]].caption}">${layout.state[m["state"]].icon}</i>` : "")}
+          </td>
+          <td class="mdc-data-table__cell">
+            <button class="mdc-icon-button material-icons" onclick title="">settings</button>
+          </td>
+        </tr>`;
+    }
+    html += `  
+      </tbody>
+    </table>
+  </div></div>`;
     return html;
 }

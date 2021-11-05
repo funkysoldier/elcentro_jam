@@ -12,6 +12,11 @@ if ( isset($_POST["request"]) || ( isset($_GET["r"]) && $_GET["r"] == "356765676
         $r["params"] = $_GET["p"];
     }
     $request = new Request($r["method"], $r["object"], $r["params"]);
-    $response = $request->execute();
+    try {
+        $response = $request->execute();
+    } catch (\Throwable $th) {
+        //throw $th;
+        $response = ["error" => print_r($th, true)];
+    }
     echo json_encode($response);
 }

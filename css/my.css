@@ -63,6 +63,9 @@
     margin-right: 2px;
     cursor: pointer;
 }
+#members_table table {
+    cursor: default;
+}
 .status--ok {
     color: var(--mdc-theme-secondary, #018786);
 }
