@@ -1,4 +1,6 @@
 <?php
+if (!isset($_COOKIE["memberEmail"]))
+  header("Location: /my/login.html");
 include_once "../core/config.php"; 
 $cfg = new Config;
 ?>
