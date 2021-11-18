@@ -1,8 +1,11 @@
 var tabBar;
+var stateSelect;
 var members;
 
 function getMembers(){
-    setLoader('.content .inner')
+    setLoader('.content .inner');
+    $('.content .filter').html( getRegistrationsFilters() );
+    stateSelect = new MDCSelect(document.querySelector(`.content .filter .mdc-select`));
     getContent({object: "member", method: "all", params: null}, function(data){
         if (!data.error) {
             members = data;

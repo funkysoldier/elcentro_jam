@@ -206,3 +206,37 @@ function getRegistrationsView(data) {
   </div></div>`;
     return html;
 }
+
+function getRegistrationsFilters(){
+    let html = `
+  <div class="mdc-layout-grid__cell--span-6">
+    <div class="mdc-select mdc-select--outlined filter__state" id="category">
+      <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+        <input type="text" class="mdc-select__selected-text">
+        <i class="mdc-select__dropdown-icon"></i>
+        <span class="mdc-notched-outline">
+          <span class="mdc-notched-outline__leading"></span>
+          <span class="mdc-notched-outline__notch">
+            <span id="outlined-select-label" class="mdc-floating-label">Статус</span>
+          </span>
+          <span class="mdc-notched-outline__trailing"></span>
+        </span>
+      </div>
+      <div class="mdc-select__menu mdc-menu mdc-menu-surface" role="listbox" style="min-width: 100%;">
+        <ul class="mdc-list">`;
+    for (const state in layout.state) {
+        if (Object.hasOwnProperty.call(layout.state, state  )) {
+            let st = layout.state[state];
+            html += `
+          <li class="mdc-list-item" data-value="${state}" role="option">
+            <span class="mdc-list-item__text">${st.caption}</span>
+          </li>`;          
+        }
+    }
+    html += `
+        </ul>
+      </div>
+    </div>
+  </div>`;
+    return html;
+}

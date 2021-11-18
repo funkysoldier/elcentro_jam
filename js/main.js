@@ -3,6 +3,7 @@ const cRequest = "/core/";
 const MDCList = mdc.list.MDCList;
 const MDCRipple = mdc.ripple.MDCRipple;
 const MDCTabBar = mdc.tabBar.MDCTabBar;
+const MDCSelect = mdc.select.MDCSelect;
 const MDCFormField = mdc.formField.MDCFormField;
 const MDCTextField = mdc.textField.MDCTextField;
 const MDCCheckbox = mdc.checkbox.MDCCheckbox;
