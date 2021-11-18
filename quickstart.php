@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="shortcut icon" href="/favicon.ico"/>
-    <title>Джем - Личный кабинет</title>
+    <title>Джем - Консоль организатора - Первый запуск</title>
     <!-- Styles -->
     <link href="/css/my.css" rel="stylesheet">    
     <!-- Material Design -->
@@ -16,29 +16,8 @@
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="/js/main.js" type="text/javascript"></script>
     <script src="/js/view.js" type="text/javascript"></script>
-    <script src="/js/my.js" type="text/javascript"></script>
+    <script src="/js/org.js" type="text/javascript"></script>
   </head>
   <body class="mdc-typography">
-    <div class="page">
-      <div class="mdc-layout-grid mdc-elevation--z1">
-        <div class="mdc-layout-grid__inner header">
-          <div class="mdc-layout-grid__cell--span-6">
-            <span class="mdc-typography--headline5 title"><a href="/">РеДжем 2021</a></span>
-          </div>
-          <div class="mdc-layout-grid__cell--span-6 right">
-            <button class="mdc-button mdc-button--outlined">
-              <span class="mdc-button__ripple"></span>
-              <span class="mdc-button__label">Выйти</span>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="content">
-        <div class="mdc-layout-grid">
-          <div class="mdc-layout-grid__inner inner">
-          </div>
-        </div>
-      </div>
-    </div>
   </body>
 </html>
